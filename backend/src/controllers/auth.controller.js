@@ -2,22 +2,23 @@ import bcrypt from "bcryptjs"
 import User from "../models/user.model.js";
 import { generateToken } from "../lib/utils.js";
 
-export const signup=async (req, res)=>{
+export const signup=async (req, res)=>{    
 
     const isValidEmail=(email)=>{
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return regex.test(email);
-    }
+    }    
 
-    const {fullname, email, password}=req.body;
+    const {fullname, email, password}=req.body;    
+
     try {
         if(!fullname || !email || !password){
             return res.status(400).json({message: "All fields are required"});
-        }
+        }        
 
         if(!isValidEmail(email)){
             return res.status(400).json({message: "Invalid email address"});
-        }
+        }        
 
         if(password.length<6){
             return res.status(400).json({message: "Password must be at least 6 characters"});
@@ -26,7 +27,7 @@ export const signup=async (req, res)=>{
         const user=await User.findOne({email});
         if(user){
             return res.status(400).json({message: "Email already exists"});
-        }
+        }        
 
         const salt=await bcrypt.genSalt(10); // Generate salt
         const hashedPassword=await bcrypt.hash(password, salt);
@@ -36,6 +37,9 @@ export const signup=async (req, res)=>{
             email:email,
             password:hashedPassword
         });
+
+        // console.log(newUser);
+        
 
         if(newUser){
             generateToken(newUser._id, res);
