@@ -4,7 +4,7 @@ import { getUsers, getMessages, sendMessage } from "../controllers/message.contr
 
 const router=express.Router();
 
-router.get("/user", protectRoute, getUsers);
+router.get("/users", protectRoute, getUsers);
 router.get("/:id", protectRoute, getMessages);
 router.post("/send/:id", protectRoute, sendMessage);
 

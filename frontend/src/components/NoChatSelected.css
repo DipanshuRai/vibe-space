@@ -1,0 +1,63 @@
+.nochat-container {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  background-color: rgba(var(--b1, 255, 255, 255), 0.5); /* Tailwind: bg-base-100/50 */
+}
+
+.nochat-content {
+  max-width: 28rem; /* Tailwind: max-w-md */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.nochat-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.nochat-icon-bg {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1rem;
+  background-color: rgba(var(--p, 59, 130, 246), 0.1); /* Tailwind: bg-primary/10 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bounce 1s infinite;
+}
+
+.nochat-icon {
+  width: 2rem;
+  height: 2rem;
+  color: var(--p, #3b82f6); /* Tailwind: text-primary */
+}
+
+.nochat-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nochat-subtitle {
+  color: rgba(var(--bc, 0, 0, 0), 0.6); /* Tailwind: text-base-content/60 */
+}
+
+/* Basic bounce animation (imitating Tailwind's animate-bounce) */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-10%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}

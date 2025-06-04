@@ -1,4 +1,5 @@
 import bcrypt from "bcryptjs"
+import cloudinary from "cloudinary";
 import User from "../models/user.model.js";
 import { generateToken } from "../lib/utils.js";
 
@@ -26,7 +27,7 @@ export const signup=async (req, res)=>{
 
         const user=await User.findOne({email});
         if(user){
-            return res.status(400).json({message: "Email already exists"});
+            return res.status(400).json({message: "Email already registered"});
         }        
 
         const salt=await bcrypt.genSalt(10); // Generate salt
@@ -121,7 +122,7 @@ export const updateProfilePic=async (req, res)=>{
     );
     res.status(200).json(updatedUser);
     } catch (error) {
-    console.log("Error in update profile: ",error.message);
+    console.log("Error in updateProfile controller: ",error.message);
     res.status(500).json({message: "Internal server error"});
     }
 };
@@ -133,4 +134,4 @@ export const checkAuth=(req, res)=>{
         console.log("Error in checkAuth controller: ", error.message);
         res.status(500).json({message: "Internal server error"});
     }
-};
+}; 

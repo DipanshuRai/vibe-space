@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAuthStore } from './store/useAuthStore'; // custom authentication state hook
+import { useThemeStore } from './store/useThemeStore';
 import { Loader } from 'lucide-react';
 import { Toaster } from 'react-hot-toast';
 import Navbar from './components/Navbar';
@@ -12,12 +13,11 @@ import ProfilePage from './pages/ProfilePage';
 
 const App = () => {
   const {authUser, isCheckingAuth, checkAuth}=useAuthStore();
+  const {theme}=useThemeStore();
 
   useEffect(()=>{
     checkAuth();
   }, [checkAuth]);
-
-  console.log({authUser}); 
 
   if(isCheckingAuth && !authUser) return (
     <div className='flex item-center justify-center h-screen'>
@@ -26,7 +26,7 @@ const App = () => {
   )
 
   return (
-    <div>
+    <div data-theme={theme} >
       <Navbar/>
       <Routes>
         <Route path="/" element={authUser ? <HomePage/> : <Navigate to="/login"/>}/>

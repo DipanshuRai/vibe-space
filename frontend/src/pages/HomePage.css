@@ -1,0 +1,29 @@
+.homepage-container {
+  height: 100vh;
+  /* background-color: var(--fallback-b2, theme("colors.base-200")); */
+}
+
+.homepage-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.homepage-content {
+  /* background-color: var(--fallback-b1, theme("colors.base-100")); */
+  border-radius: 0.5rem;
+  /* box-shadow: var(--fallback-shadow, theme("boxShadow.DEFAULT")); */
+  width: 100%;
+  max-width: 72rem; /* max-w-6xl */
+  height: calc(100vh - 8rem);
+}
+
+.homepage-main {
+  display: flex;
+  height: 100%;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}

@@ -1,0 +1,157 @@
+.sidebar {
+  height: 100%;
+  width: 5rem;
+  border-right: 1px solid var(--fallback-bc, #d1d5db); /* base-300 */
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s;
+}
+
+@media (min-width: 1024px) {
+  .sidebar {
+    width: 18rem; /* lg:w-72 */
+  }
+}
+
+.sidebar-header {
+  border-bottom: 1px solid var(--fallback-bc, #d1d5db);
+  width: 100%;
+  padding: 1.25rem;
+}
+
+.sidebar-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sidebar-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.sidebar-title-text {
+  font-weight: 500;
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .sidebar-title-text {
+    display: block;
+  }
+}
+
+.online-filter {
+  margin-top: 0.75rem;
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (min-width: 1024px) {
+  .online-filter {
+    display: flex;
+  }
+}
+
+.filter-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.filter-text {
+  font-size: 0.875rem;
+}
+
+.online-count {
+  font-size: 0.75rem;
+  color: #71717a; /* zinc-500 */
+}
+
+.user-list {
+  overflow-y: auto;
+  width: 100%;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.user-button {
+  width: 100%;
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: background-color 0.2s;
+}
+
+.user-button:hover {
+  background-color: var(--fallback-bc, #e5e7eb); /* base-300 */
+}
+
+.user-selected {
+  background-color: var(--fallback-bc, #e5e7eb);
+  box-shadow: 0 0 0 1px var(--fallback-bc, #e5e7eb);
+}
+
+.user-avatar-wrapper {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 1024px) {
+  .user-avatar-wrapper {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.user-avatar {
+  width: 3rem;
+  height: 3rem;
+  object-fit: cover;
+  border-radius: 9999px;
+}
+
+.user-status {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: #22c55e; /* green-500 */
+  border-radius: 9999px;
+  border: 2px solid #18181b; /* zinc-900 */
+}
+
+.user-info {
+  display: none;
+  text-align: left;
+  min-width: 0;
+}
+
+@media (min-width: 1024px) {
+  .user-info {
+    display: block;
+  }
+}
+
+.user-name {
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-status-text {
+  font-size: 0.875rem;
+  color: #a1a1aa; /* zinc-400 */
+}
+
+.no-users {
+  text-align: center;
+  color: #71717a; /* zinc-500 */
+  padding: 1rem 0;
+}

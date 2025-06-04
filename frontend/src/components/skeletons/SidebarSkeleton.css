@@ -1,0 +1,114 @@
+.sidebar-skeleton {
+  height: 100%;
+  width: 5rem;
+  border-right: 1px solid var(--fallback-bc, #d1d5db);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s;
+}
+
+@media (min-width: 1024px) {
+  .sidebar-skeleton {
+    width: 18rem;
+  }
+}
+
+.sidebar-skeleton-header {
+  border-bottom: 1px solid var(--fallback-bc, #d1d5db);
+  width: 100%;
+  padding: 1.25rem;
+}
+
+.sidebar-skeleton-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sidebar-skeleton-title .icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.title-text {
+  font-weight: 500;
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .title-text {
+    display: block;
+  }
+}
+
+.sidebar-skeleton-contacts {
+  overflow-y: auto;
+  width: 100%;
+  padding: 0.75rem 0;
+}
+
+.skeleton-contact {
+  width: 100%;
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.avatar-wrapper {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 1024px) {
+  .avatar-wrapper {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.skeleton {
+  background-color: #e5e7eb;
+  border-radius: 0.25rem;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.skeleton-avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+}
+
+.contact-info {
+  display: none;
+  text-align: left;
+  min-width: 0;
+  flex: 1;
+}
+
+@media (min-width: 1024px) {
+  .contact-info {
+    display: block;
+  }
+}
+
+.skeleton-name {
+  height: 1rem;
+  width: 8rem;
+  margin-bottom: 0.5rem;
+}
+
+.skeleton-status {
+  height: 0.75rem;
+  width: 4rem;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
