@@ -11,7 +11,7 @@ const NoChatSelected = () => {
           </div>
         </div>
 
-        <h2 className="nochat-title">Welcome to Chatty!</h2>
+        <h2 className="nochat-title">Welcome to Vibe Space!</h2>
         <p className="nochat-subtitle">
           Select a conversation from the sidebar to start chatting
         </p>

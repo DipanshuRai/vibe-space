@@ -15,7 +15,7 @@ const Navbar = () => {
               <div className="navbar-logo">
                 <MessageSquare className="navbar-logo-icon" />
               </div>
-              <h1 className="navbar-title">Chatty</h1>
+              <h1 className="navbar-title">Vibe Space</h1>
             </Link>
           </div>
 

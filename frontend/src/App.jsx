@@ -12,8 +12,8 @@ import SettingsPage from './pages/SettingsPage';
 import ProfilePage from './pages/ProfilePage';
 
 const App = () => {
-  const {authUser, isCheckingAuth, checkAuth}=useAuthStore();
-  const {theme}=useThemeStore();
+  const {authUser, isCheckingAuth, checkAuth, onlineUsers}=useAuthStore();
+  const {theme}=useThemeStore();  
 
   useEffect(()=>{
     checkAuth();

@@ -64,7 +64,7 @@ const Sidebar = () => {
             </div>
 
             <div className="user-info">
-              <div className="user-name">{user.fullName}</div>
+              <div className="user-name">{user.fullname}</div>
               <div className="user-status-text">
                 {onlineUsers.includes(user._id) ? "Online" : "Offline"}
               </div>
