@@ -13,7 +13,7 @@ const Navbar = () => {
           <div className="navbar-left">
             <Link to="/" className="navbar-brand">
               <div className="navbar-logo">
-                <MessageSquare className="navbar-logo-icon" />
+                <img src="/logo.png" alt="Vibe Space Logo"/>
               </div>
               <h1 className="navbar-title">Vibe Space</h1>
             </Link>
