@@ -2,6 +2,9 @@
 
 **Vibe Space** is a real-time chat application built with the MERN stack (MongoDB, Express.js, React.js, Node.js) and Socket.IO. It offers features like user authentication, one-on-one messaging, and responsive design, providing a seamless communication experience.
 
+**Click to use**: [Vibe Space](https://vibe-space-mnpa.onrender.com)
+
+
 ## 🚀 Features
 
 - **User Authentication**: Secure sign-up and login using JWT.
@@ -17,10 +20,6 @@
 - **Database**: MongoDB (via Mongoose)
 - **Real-Time Communication**: Socket.IO
 - **Authentication**: JWT (JSON Web Tokens), bcrypt
-
-## 📡 Live Demo
-
-[Vibe Space Live Demo]([https://your-deployment-url.com](https://vibe-space-mnpa.onrender.com))
 
 ## ⚙️ Installation
 
@@ -83,10 +82,6 @@
 7. **Access the application**:
 
    Open your browser and navigate to `http://localhost:5173`.
-
-## 📦 Deployment
-
-*Provide deployment instructions or links to deployed versions if available.*
 
 ## 📧 Contact
 
