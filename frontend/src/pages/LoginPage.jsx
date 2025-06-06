@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuthStore } from "../store/useAuthStore";
 import { Link } from "react-router-dom";
 import { Eye, EyeOff, Loader2, Lock, Mail, MessageSquare } from "lucide-react";
-import "./LoginPage.css"; // Import the CSS
+import "./LoginPage.css";
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -39,7 +39,9 @@ const LoginPage = () => {
                   className="input"
                   placeholder="you@example.com"
                   value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                 />
               </div>
             </div>
@@ -53,14 +55,20 @@ const LoginPage = () => {
                   className="input"
                   placeholder="••••••••"
                   value={formData.password}
-                  onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, password: e.target.value })
+                  }
                 />
                 <button
                   type="button"
                   className="toggle-password"
                   onClick={() => setShowPassword(!showPassword)}
                 >
-                  {showPassword ? <EyeOff className="input-icon" /> : <Eye className="input-icon" />}
+                  {showPassword ? (
+                    <EyeOff className="input-icon" />
+                  ) : (
+                    <Eye className="input-icon" />
+                  )}
                 </button>
               </div>
             </div>

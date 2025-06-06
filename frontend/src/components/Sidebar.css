@@ -1,28 +1,65 @@
-.sidebar {
-  height: 100%;
-  width: 5rem;
-  border-right: 1px solid var(--fallback-bc, #d1d5db); /* base-300 */
-  display: flex;
-  flex-direction: column;
-  transition: all 0.2s;
+:root {
+  --primary: #169f9a;
+  --primary-hover: #3aa8a3;
+  --surface: #f0f4f8;
+  --border: #d1d5db;
+  --text: #1e293b;
+  --subtext: #64748b;
+  --online: #22c55e;
+  --bg-dark: #18181b;
 }
 
-@media (min-width: 1024px) {
-  .sidebar {
-    width: 18rem; /* lg:w-72 */
-  }
+.sidebar {
+  height: 100%;
+  width: clamp(16rem, 20vw, 22rem); /* min 16rem, preferred 20vw, max 22rem */
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--surface);
+  transition: all 0.3s ease;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.sidebar.collapsed {
+  width: 5.3rem;
+}
+
+.sidebar.collapsed .sidebar-title-text,
+.sidebar.collapsed .online-filter,
+.sidebar.collapsed .user-info {
+  display: none !important;
 }
 
 .sidebar-header {
-  border-bottom: 1px solid var(--fallback-bc, #d1d5db);
-  width: 100%;
+  border-bottom: 1px solid var(--border);
   padding: 1.25rem;
+  background-color: white;
+  position: relative;
+}
+
+.collapse-btn {
+  position: absolute;
+  top: 1rem;
+  right: 0.35rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+  padding: 0.25rem;
+  transition: transform 0.2s;
+}
+
+.collapse-btn:hover {
+  transform: scale(1.1);
 }
 
 .sidebar-title {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  color: var(--text);
 }
 
 .sidebar-icon {
@@ -31,27 +68,18 @@
 }
 
 .sidebar-title-text {
-  font-weight: 500;
-  display: none;
-}
-
-@media (min-width: 1024px) {
-  .sidebar-title-text {
-    display: block;
-  }
+  font-weight: 600;
+  font-size: 1rem;
+  display: block;
 }
 
 .online-filter {
   margin-top: 0.75rem;
-  display: none;
+  display: flex;
   align-items: center;
   gap: 0.5rem;
-}
-
-@media (min-width: 1024px) {
-  .online-filter {
-    display: flex;
-  }
+  font-size: 0.875rem;
+  color: var(--subtext);
 }
 
 .filter-label {
@@ -61,51 +89,51 @@
   cursor: pointer;
 }
 
-.filter-text {
-  font-size: 0.875rem;
+.checkbox {
+  accent-color: var(--primary);
 }
 
 .online-count {
   font-size: 0.75rem;
-  color: #71717a; /* zinc-500 */
+  color: var(--subtext);
 }
 
 .user-list {
-  overflow-y: auto;
-  width: 100%;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding: 0.75rem 0;
+  flex-grow: 1;
 }
 
 .user-button {
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.75rem 1rem;
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  transition: background-color 0.2s;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  text-align: left;
 }
 
 .user-button:hover {
-  background-color: var(--fallback-bc, #e5e7eb); /* base-300 */
+  background-color: rgba(22, 159, 154, 0.08);
+  transform: scale(1.01);
+}
+
+.user-button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
 
 .user-selected {
-  background-color: var(--fallback-bc, #e5e7eb);
-  box-shadow: 0 0 0 1px var(--fallback-bc, #e5e7eb);
+  background-color: rgba(22, 159, 154, 0.1);
+  border-left: 3px solid var(--primary);
 }
 
 .user-avatar-wrapper {
   position: relative;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-@media (min-width: 1024px) {
-  .user-avatar-wrapper {
-    margin-left: 0;
-    margin-right: 0;
-  }
+  margin: 0;
 }
 
 .user-avatar {
@@ -113,6 +141,7 @@
   height: 3rem;
   object-fit: cover;
   border-radius: 9999px;
+  border: 2px solid var(--border);
 }
 
 .user-status {
@@ -121,25 +150,19 @@
   right: 0;
   width: 0.75rem;
   height: 0.75rem;
-  background-color: #22c55e; /* green-500 */
+  background-color: var(--online);
   border-radius: 9999px;
-  border: 2px solid #18181b; /* zinc-900 */
+  border: 2px solid var(--bg-dark);
 }
 
 .user-info {
-  display: none;
-  text-align: left;
+  display: block;
   min-width: 0;
-}
-
-@media (min-width: 1024px) {
-  .user-info {
-    display: block;
-  }
 }
 
 .user-name {
   font-weight: 500;
+  color: var(--text);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -147,11 +170,12 @@
 
 .user-status-text {
   font-size: 0.875rem;
-  color: #a1a1aa; /* zinc-400 */
+  color: var(--subtext);
 }
 
 .no-users {
   text-align: center;
-  color: #71717a; /* zinc-500 */
+  color: var(--subtext);
   padding: 1rem 0;
+  font-size: 0.875rem;
 }

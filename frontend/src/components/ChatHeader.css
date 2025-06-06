@@ -1,26 +1,34 @@
 .chat-header-wrapper {
-  padding: 0.625rem;
-  border-bottom: 1px solid var(--fallback-bc, #d1d5db);
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  background-color: rgba(var(--b1, 255, 255, 255), 0.5);
 }
 
 .chat-header-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .chat-header-user {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  min-width: 0;
+  flex-shrink: 1;
 }
 
 .chat-header-avatar {
   width: 2.5rem;
   height: 2.5rem;
+  min-width: 2.5rem;
   border-radius: 9999px;
   overflow: hidden;
   position: relative;
+  border: 2px solid var(--border);
+  background-color: #f9fafb;
 }
 
 .chat-header-avatar-img {
@@ -31,13 +39,20 @@
 }
 
 .chat-header-name {
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 1rem;
   margin: 0;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 12rem;
 }
 
 .chat-header-status {
   font-size: 0.875rem;
-  color: rgba(0, 0, 0, 0.6); /* Tailwind's text-base-content/70 equivalent */
+  color: var(--subtext);
+  margin: 0;
 }
 
 .chat-header-close {
@@ -45,4 +60,31 @@
   border: none;
   cursor: pointer;
   padding: 0.25rem;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.chat-header-close:hover {
+  background-color: rgb(122, 187, 187);
+  border-radius: 100%;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+@media (max-width: 480px) {
+  .chat-header-name {
+    max-width: 8rem;
+    font-size: 0.95rem;
+  }
+
+  .chat-header-status {
+    font-size: 0.8rem;
+  }
+
+  .chat-header-avatar {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
 }

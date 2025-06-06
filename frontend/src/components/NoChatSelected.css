@@ -6,11 +6,11 @@
   align-items: center;
   justify-content: center;
   padding: 4rem;
-  background-color: rgba(var(--b1, 255, 255, 255), 0.5); /* Tailwind: bg-base-100/50 */
+  background-color: rgba(var(--b1, 255, 255, 255), 0.5);
 }
 
 .nochat-content {
-  max-width: 28rem; /* Tailwind: max-w-md */
+  max-width: 28rem;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -28,7 +28,7 @@
   width: 4rem;
   height: 4rem;
   border-radius: 1rem;
-  background-color: rgba(var(--p, 59, 130, 246), 0.1); /* Tailwind: bg-primary/10 */
+  background-color: rgb(68, 160, 157); /* Tailwind: bg-primary/10 */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,12 +38,13 @@
 .nochat-icon {
   width: 2rem;
   height: 2rem;
-  color: var(--p, #3b82f6); /* Tailwind: text-primary */
+  color: #002839;
 }
 
 .nochat-title {
   font-size: 1.5rem;
   font-weight: bold;
+  color: #001e2b;
 }
 
 .nochat-subtitle {

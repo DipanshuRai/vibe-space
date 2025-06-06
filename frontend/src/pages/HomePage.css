@@ -1,6 +1,6 @@
 .homepage-container {
   height: 100vh;
-  /* background-color: var(--fallback-b2, theme("colors.base-200")); */
+  background-color: rgb(68, 160, 157);
 }
 
 .homepage-inner {
@@ -13,12 +13,10 @@
 }
 
 .homepage-content {
-  /* background-color: var(--fallback-b1, theme("colors.base-100")); */
   border-radius: 0.5rem;
-  /* box-shadow: var(--fallback-shadow, theme("boxShadow.DEFAULT")); */
   width: 100%;
-  max-width: 72rem; /* max-w-6xl */
-  height: calc(100vh - 8rem);
+  max-width: 1200px;
+  height: calc(100vh - 6rem);
 }
 
 .homepage-main {

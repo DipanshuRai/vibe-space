@@ -20,10 +20,6 @@ const Navbar = () => {
           </div>
 
           <div className="navbar-right">
-            <Link to="/settings" className="navbar-btn">
-              <Settings className="navbar-icon" />
-              <span className="navbar-btn-label">Settings</span>
-            </Link>
 
             {authUser && (
               <>

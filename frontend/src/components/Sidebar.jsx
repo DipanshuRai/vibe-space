@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { useChatStore } from "../store/useChatStore";
 import { useAuthStore } from "../store/useAuthStore";
-import SidebarSkeleton from "./skeletons/SidebarSkeleton";
-import { Users } from "lucide-react";
+import { Users, ChevronsLeft, ChevronsRight } from "lucide-react";
 import "./Sidebar.css";
 
 const Sidebar = () => {
   const { getUsers, users, selectedUser, setSelectedUser, isUsersLoading } = useChatStore();
   const { onlineUsers } = useAuthStore();
   const [showOnlineOnly, setShowOnlineOnly] = useState(false);
+  const [collapsed, setCollapsed] = useState(false); // toggle state
 
   useEffect(() => {
     getUsers();
@@ -16,19 +16,16 @@ const Sidebar = () => {
 
   const filteredUsers = showOnlineOnly
     ? users.filter((user) => onlineUsers.includes(user._id))
-    : users;  
-
-  if (isUsersLoading) return <SidebarSkeleton />;
+    : users;
 
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${collapsed ? "collapsed" : ""}`}>
       <div className="sidebar-header">
         <div className="sidebar-title">
           <Users className="sidebar-icon" />
-          <span className="sidebar-title-text">Contacts</span>
+          {!collapsed && <span className="sidebar-title-text">Contacts</span>}
         </div>
 
-        {/* Online filter toggle */}
         <div className="online-filter">
           <label className="filter-label">
             <input
@@ -41,6 +38,14 @@ const Sidebar = () => {
           </label>
           <span className="online-count">({onlineUsers.length - 1} online)</span>
         </div>
+
+        <button
+          className="collapse-btn"
+          onClick={() => setCollapsed((prev) => !prev)}
+          title={collapsed ? "Expand" : "Collapse"}
+        >
+          {collapsed ? <ChevronsRight size={16} /> : <ChevronsLeft size={16} />}
+        </button>
       </div>
 
       <div className="user-list">
@@ -48,9 +53,7 @@ const Sidebar = () => {
           <button
             key={user._id}
             onClick={() => setSelectedUser(user)}
-            className={`user-button ${
-              selectedUser?._id === user._id ? "user-selected" : ""
-            }`}
+            className={`user-button ${selectedUser?._id === user._id ? "user-selected" : ""}`}
           >
             <div className="user-avatar-wrapper">
               <img
@@ -58,17 +61,17 @@ const Sidebar = () => {
                 alt={user.name}
                 className="user-avatar"
               />
-              {onlineUsers.includes(user._id) && (
-                <span className="user-status" />
-              )}
+              {onlineUsers.includes(user._id) && <span className="user-status" />}
             </div>
 
-            <div className="user-info">
-              <div className="user-name">{user.fullname}</div>
-              <div className="user-status-text">
-                {onlineUsers.includes(user._id) ? "Online" : "Offline"}
+            {!collapsed && (
+              <div className="user-info">
+                <div className="user-name">{user.fullname}</div>
+                <div className="user-status-text">
+                  {onlineUsers.includes(user._id) ? "Online" : "Offline"}
+                </div>
               </div>
-            </div>
+            )}
           </button>
         ))}
 

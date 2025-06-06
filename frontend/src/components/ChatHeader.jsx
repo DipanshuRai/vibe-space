@@ -11,7 +11,6 @@ const ChatHeader = () => {
     <div className="chat-header-wrapper">
       <div className="chat-header-content">
         <div className="chat-header-user">
-          {/* Avatar */}
           <div className="chat-header-avatar">
             <img
               src={selectedUser.profilePic || "/avatar.png"}
@@ -20,16 +19,14 @@ const ChatHeader = () => {
             />
           </div>
 
-          {/* User Info */}
           <div>
-            <h3 className="chat-header-name">{selectedUser.fullName}</h3>
+            <h3 className="chat-header-name">{selectedUser.fullname}</h3>
             <p className="chat-header-status">
               {onlineUsers.includes(selectedUser._id) ? "Online" : "Offline"}
             </p>
           </div>
         </div>
 
-        {/* Close Button */}
         <button onClick={() => setSelectedUser(null)} className="chat-header-close">
           <X />
         </button>
