@@ -37,10 +37,7 @@ export const signup=async (req, res)=>{
             fullname:fullname,
             email:email,
             password:hashedPassword
-        });
-
-        // console.log(newUser);
-        
+        });        
 
         if(newUser){
             generateToken(newUser._id, res);
@@ -84,9 +81,10 @@ export const login=async (req, res)=>{
 
         res.status(200).json({
             _id: user._id,
-            fullName: user.fullName,
+            fullname: user.fullname,
             email: user.email,
-            profilePic: user.profilePic
+            profilePic: user.profilePic,
+            createdAt: user.createdAt
         })
 
     } catch (error) {
@@ -134,4 +132,4 @@ export const checkAuth=(req, res)=>{
         console.log("Error in checkAuth controller: ", error.message);
         res.status(500).json({message: "Internal server error"});
     }
-}; 
+};
